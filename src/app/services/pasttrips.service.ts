@@ -31,6 +31,9 @@ export class pasttripsService {
     pasttrip2.location="Montreal, Canada";
     pasttrip2.startdate="August 4, 2016";
     pasttrip2.enddate="August 18, 2016";
+
+    this.pasttrips.push(pasttrip1);
+    this.pasttrips.push(pasttrip2);  
   }
 
   findpasttripById(id: string): pasttrips {
