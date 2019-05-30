@@ -4,7 +4,7 @@ import { NavController } from '@ionic/angular';
 import { pasttrip } from '../models';
 import { payment } from '../models';
 import { property } from '../models';
-import { user } from '../models';
+import { User } from '../models';
 
 @Component({
   selector: 'app-tab4',
@@ -16,7 +16,7 @@ export class Tab4Page implements OnInit{
   public pasttrips: Array<pasttrip> = [];
   public payment: Array<payment> = [];
   public property: Array<property> = [];
-  public user: Array<user> = [];
+  public user: Array<User> = [];
 
   constructor (private navCtrl: NavController) {
     
