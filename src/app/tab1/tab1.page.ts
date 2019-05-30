@@ -9,11 +9,7 @@ import { User } from '../models';
   templateUrl: './tab1.page.html',
   styleUrls: ['./tab1.page.scss'],
 })
-export class Tab1Page implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
-
+export class Tab1Page {
 
   public user: Array<User> = [];
   public user1: User;

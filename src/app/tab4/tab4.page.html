@@ -17,9 +17,14 @@
 
       <ion-list>
           <ion-item> 
-            <ion-card id="lisboncard">
-            <img id="Lisbon" src="https://s-ec.bstatic.com/images/hotel/max1280x900/105/105878771.jpg" style="width: 25%; height: 75%; margin: 15px" (click)="goRental1()">
-           <h2><ion-label> Lisbon, Portugal</ion-label></h2>
+            <ion-card id="lisboncard" *ngFor="let currenttrip1 of currenttrip">
+            <img id="Lisbon" src="{{currenttrip1.imgName}}" style="width: 25%; height: 75%; margin: 15px" (click)="goRental1()">
+           <h2><ion-label> {{currenttrip1.location}}</ion-label></h2>
+           <ion-label>
+              {{currenttrip1.price}}
+              {{currenttrip1.startdate}}
+              {{currenttrip1.enddate}}
+           </ion-label>
           </ion-card>
           </ion-item>
       </ion-list>
@@ -29,31 +34,18 @@
       <div>
       <ion-list>
            <!-- --><ion-item>
-            <ion-card id="londoncard">
-              
-                <ion-card-title *ngFor="let pasttrip of pasttrips">
-                  <img id="bnb1"src="{{pasttrip.imgName}}">
-                </ion-card-title>
-              
-              <ion-card-content>
+            <ion-card id="londoncard"  *ngFor="let pasttrips of pasttrips" (click)="navToPasttrip(pasttrips)">
                 <ion-label>
-                  {{pasttrip1.location}}
-                  {{pasttrip1.price}}
-                  {{pasttrip1.startdate}}
-                  {{pasttrip1.enddate}}
+                  {{pasttrip.name}}
                 </ion-label>
-              </ion-card-content>
-          </ion-card>
+              
+                
+            </ion-card>
 
 
                   </ion-item>
 
-          <!-- --><ion-item>
-              <ion-card id="montrealcard">
-                  <img id="Montreal" src="http://static.trip101.com/paragraph_media/pictures/001/612/529/large/1514a6b6_original.jpg?1556004699" style="width: 25%; height: 75%; margin: 15px" (click)="goRental3()">
-                  <h2><ion-label> Montreal, Canada</ion-label></h2>
-                </ion-card>
-                      </ion-item>
+        
 
 
            <ion-item>Listing 2</ion-item>
