@@ -17,4 +17,20 @@ div.relative {
 
 ion-content {
   overflow-y: scroll;
+
+}
+.Chip{
+  color: lightblue;
+}
+
+
+ion-card{
+  background-color: whitesmoke;
+}
+ion-content {
+  --background: none;
+  background-image: url('http://stadiumparkingguides.com/wp-content/uploads/2014/10/nationals_park_parking.jpg');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

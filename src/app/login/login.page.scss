@@ -9,6 +9,10 @@ ion-grid {
     width:100%;
     height: $height100;
     background: #dfdfdf;
+    background-image: url('http://act-ofrandomkindness.org/projectbinders/wp-content/uploads/2018/01/5847500408f4a_Screen_Shot_2016_12_06_at_6_54_56_PM.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 ion-row {
@@ -32,4 +36,11 @@ ion-button {
     ion-col {
         border: none;
     }
+}
+ion-content {
+    --background: none;
+    background-image: url('http://www.freelogovectors.net/wp-content/uploads/2016/12/airbnb_logo.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

@@ -2,14 +2,14 @@
 <ion-header>
     <ion-toolbar>
       <ion-title>
-          <ion-title><div class="center"><h1>Trips</h1></div></ion-title>
+        <div class="center"><h1>Trips</h1></div>
       </ion-title>
     </ion-toolbar>
   
   </ion-header>
   <div class="center"><h3>No upcoming trips</h3></div>
   <div class="center"><h3>Start exploring ideas for your next trip</h3></div>
-  <ion-button fill="outline"size="large" shape="round" block href="/tabs/tab5"> Explore Air BnB </ion-button>
+  <ion-button id="button" color="secondary" size="large" shape="round" block href="/tabs/tab5"> Explore Air BnB </ion-button>
   
   <ion-content>
     
@@ -17,12 +17,60 @@
 
       <ion-list>
           <ion-item> 
+            <ion-card id="lisboncard">
             <img id="Lisbon" src="https://s-ec.bstatic.com/images/hotel/max1280x900/105/105878771.jpg" style="width: 25%; height: 75%; margin: 15px" (click)="goRental1()">
            <h2><ion-label> Lisbon, Portugal</ion-label></h2>
+          </ion-card>
           </ion-item>
       </ion-list>
+       
 
       <div class="center"><h2><b>WHERE YOU'VE BEEN</b></h2></div>
-      <div class="center"><h6>Nowhere. Get out and explore!</h6></div>
+      <div>
+      <ion-list>
+           <!-- --><ion-item>
+            <ion-card id="londoncard">
+              
+                <ion-card-title *ngFor="let pasttrip of pasttrips">
+                  <img id="bnb1"src="{{pasttrip.imgName}}">
+                </ion-card-title>
+              
+              <ion-card-content>
+                  {{pasttrip.location}}
+                  {{pasttrip.price}}
+                  {{pasttrip.startdate}}
+                  {{pasttrip.enddate}}
+              </ion-card-content>
+          </ion-card>
+
+
+                  </ion-item>
+
+          <!-- --><ion-item>
+              <ion-card id="montrealcard">
+                  <img id="Montreal" src="http://static.trip101.com/paragraph_media/pictures/001/612/529/large/1514a6b6_original.jpg?1556004699" style="width: 25%; height: 75%; margin: 15px" (click)="goRental3()">
+                  <h2><ion-label> Montreal, Canada</ion-label></h2>
+                </ion-card>
+                      </ion-item>
+
+
+           <ion-item>Listing 2</ion-item>
+           <ion-item *ngFor="let transaction of transactions">{{transaction}}</ion-item>
+           
+       </ion-list>
+ 
+       <ion-list>
+         <ion-item *ngFor="let user of users">
+           {{user.firstname}}
+ 
+         </ion-item>
+       </ion-list>
+ 
+       <div *ngIf="loggedIn === true">
+           Logout...
+       </div>
+      </div>
       <img id="Map" src="https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1340102/1263/772/m1/fpnw/wm1/worldmap_english_preview-.jpg?1465178047&s=a54039dd769474e51aab2064aa53e5ae" style="width: 100%; height: 100%; margin: 15px">
+
+      
   </ion-content>
