@@ -1,9 +1,64 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><div class="center"><h1>Explore</h1></div></ion-title>
+    <ion-title><div><h1 style="color:rgba(245, 105, 116, 0.973)">Airbnb</h1></div></ion-title>
+    <h2 style= margin:2%>Book unique homes and 
+      <p>experience city like a local</p></h2>
   </ion-toolbar>
 </ion-header>
+<ion-searchbar placeholder="Honolulu, Hawaii " debounce="500" animated></ion-searchbar>
 
 <ion-content>
+<h1 style=color:rgb(68,68,68);margin:2%>Explore Airbnb</h1>
+
+<div class="flex-container">
+    <div style= padding:25px>
+      <ion-card id="card1">
+          <ion-card-title>
+            <img id="home" src="https://cdn-images-1.medium.com/max/2600/1*_N3sz8fhNFU5tB5YTVfGHg.jpeg" style= width:150px;height:85%;margin:10px;>
+    
+          </ion-card-title>
+          <h2 id="Homes">Homes</h2>
+      </ion-card>
+     </div>
+     <div style= padding:25px>
+    <ion-card id="card2">
+        <ion-card-title>
+          <img id="experience" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/wine-yoga-airbnb-experiences-1546212081.jpg" style= width:150px;height:85%;margin:10px;>
+        </ion-card-title>
+        <h2 id="Experiences">Experiences</h2>
+    </ion-card>
+    </div>
+    <div style= padding:25px>
+    <ion-card id="card3">
+      <ion-card-title>
+        <img id="restaurant" src="http://i.chirkup.me/00/00/70/7026_728x.jpg" style= width:150px;height:85%;margin:10px;>
+      </ion-card-title>
+      <h2 id="Restaurants">Restaurants</h2>
+    </ion-card>
+    </div>
+</div>
+
+<ion-card>
+<h1><b> New Listings</b></h1>
+
+<ion-item *ngFor="let property of properties" class="flexplore">
+  <ion-card style= width:400px; (click)=navToProperty(property)>
+      <ion-card-title>
+          <ion-img src="{{property.imgName}}" style= width:150px;height:95px;margin:10px></ion-img>
+      </ion-card-title>
+      <h1>{{property.id}}</h1>
+
+  </ion-card>
+  
+</ion-item>
+
+</ion-card>
+
+
+
+
 
 </ion-content>
+
+
+

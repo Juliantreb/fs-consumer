@@ -1,6 +1,6 @@
-import { property } from './property.model';
+import { Property } from './property.model';
 
-export class currenttrip extends property {
+export class CurrentTrip extends Property {
     public startdate: string;
     public enddate: string;
     

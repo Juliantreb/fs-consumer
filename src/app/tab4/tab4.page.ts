@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
-import { pasttrips, currenttrip } from '../models';
+import { pasttrips, CurrentTrip } from '../models';
 import { payment } from '../models';
-import { property } from '../models';
+import { Property } from '../models';
 import { User } from '../models';
 
-import { pasttripsService } from '../services/pasttrips.service';
+import { pasttripsService } from '../services/pasttrip.service';
+import { CurrentTripService } from '../services/currenttrip.services';
 
 
 @Component({
@@ -14,16 +15,17 @@ import { pasttripsService } from '../services/pasttrips.service';
   templateUrl: './tab4.page.html',
   styleUrls: ['./tab4.page.scss'],
 })
-export class Tab4Page implements OnInit{
+export class Tab4Page {
 
   public pasttrips: Array<pasttrips> = [];
   public pasttrips1: pasttrips;
   public payment: Array<payment> = [];
-  public property: Array<property> = [];
+  public property: Array<Property> = [];
   public user: Array<User> = [];
-  public currenttrip: Array<currenttrip> =[];
+  public currenttrips: Array<CurrentTrip> =[];
+  //public CurrentTrip1: CurrentTrip;
 
-  public currenttrip1= new currenttrip();
+  //public CurrentTrip1= new CurrentTrip();
 
   public pasttrip1: pasttrips= new pasttrips();
   public pasttrip2: pasttrips= new pasttrips();
@@ -31,44 +33,65 @@ export class Tab4Page implements OnInit{
   constructor (
     private navCtrl: NavController,
     private pasttripsService: pasttripsService,
+    private CurrentService: CurrentTripService
     ) {
+      console.log(this.CurrentService);
+    this.CurrentService.getAllCurrentTrips();
+    this.currenttrips = this.CurrentService.currenttrips;
 
+  } 
 
-    this.currenttrip1.price="$40";
-    this.currenttrip1.imgName="https://s-ec.bstatic.com/images/hotel/max1280x900/105/105878771.jpg";
-    this.currenttrip1.location="Lisbon, Portugal";
-    this.currenttrip1.startdate="May 25";
-    this.currenttrip1.enddate="July 6";
+  // navToCurrent(trip) {
+
+  // }
+
     
+      // currenttriplst: Array<CurrentTrip>();
+      // this.CurrentService.getAllCurrentTrips();
+      // this.currenttrips = this.CurrentService.currenttrips;
       
-      
-      pasttriplst: Array<pasttrips>();
-      this.pasttripsService.getAllPasttrip();
-      this.pasttrips = this.pasttripsService.pasttrips;
+      // pasttriplst: Array<pasttrips>();
+      // this.pasttripsService.getAllPasttrip();
+      // this.pasttrips = this.pasttripsService.pasttrips;
+    
+    }
+  
 
-  }
-
-  navTopasttrips(pasttrips: pasttrips) {
+  goCurrent(currenttrips: CurrentTrip) {
     this.navCtrl
-      .navigateForward("pasttrip-details",  {
+      .navigateForward("rental-details-0",  {
         queryParams: {
           q: "ionic",
-          pasttripName: pasttrips.name,
-          pasttripID: pasttrips.id,
-          pasttripPrice: pasttrips.price,
-          pasttripImGName: pasttrips.imgName,
-          pasttripStartDate: pasttrips.startdate,
-          pasttripEndDate: pasttrips.enddate,
-          pasttripLocation: pasttrips.location,
+          CurrentIMGNAME: currenttrip1.imgName,
+          CurrentID: currenttrip1.id,
+          CurrentPRICE: currenttrip1.price,
+          CurrentSTARTDATE: currenttrip1.startdate,
+          CurrentENDDATE: currenttrip1.enddate,
   
-        }
-      });
-  }
-  ngOnInit() {
-  }
+    
+  //  gopasttrip(pasttrips: pasttrips) {
+  //   this.navCtrl
+  //     .navigateForward("rental-details",  {
+  //       queryParams: {
+  //         q: "ionic",
+  //         pasttripName: pasttrips.name,
+  //         pasttripID: pasttrips.id,
+  //         pasttripPrice: pasttrips.price,
+  //         pasttripImGName: pasttrips.imgName,
+  //         pasttripStartDate: pasttrips.startdate,
+  //         pasttripEndDate: pasttrips.enddate,
+  //         pasttripLocation: pasttrips.location,
+  
+  //       }
+  //     });
+  //  }
+
+
+
+
+  // ,ngOnInit() {
+  // }
 
   
-}
-
-
-
+///
+      // })}

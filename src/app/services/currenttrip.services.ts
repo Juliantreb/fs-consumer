@@ -1,0 +1,47 @@
+import { Injectable } from '@angular/core';
+import { CurrentTrip } from '../models';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CurrentTripService {
+
+  public currenttrips: Array<CurrentTrip> = [];
+
+  constructor() {}
+
+  getAllCurrentTrips() {
+    this.currenttrips = [];
+
+    let currenttrip1 = new CurrentTrip();
+    currenttrip1.id = "Lisbon, Portugal";
+    currenttrip1.imgName = "Ohttps://thumbnails.trvl-media.com/VRqWpMGUp7FljicUtB-vPzPOgqc=/773x530/smart/filters:quality(60)/images.trvl-media.com/hotels/21000000/20210000/20208300/20208247/c7d50a0b_z.jpge";
+    currenttrip1.price=  78;
+    currenttrip1.startdate= "May 25, 2019";
+    currenttrip1.enddate= "July 6, 2019";
+
+
+
+
+   
+
+    this.currenttrips.push(currenttrip1);
+   
+  }
+
+  // Returns null if not found.
+  findCurrentTripById(id: string): CurrentTrip {
+    let foundCurrentTrip: CurrentTrip = null;
+
+    this.currenttrips.forEach(
+      (currenttrip: CurrentTrip) => {
+        if (currenttrip.id == id) {
+          foundCurrentTrip = currenttrip;
+        }
+      }
+    );
+
+    return foundCurrentTrip;
+  }
+
+}

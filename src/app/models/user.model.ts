@@ -3,14 +3,18 @@ export class User {
     public lastname: string;
     public livesin: string;
     public joinedin: string;
+    public email: string;
    
     private age: number;
+    public password: string;
 
     constructor() {
         this.firstname="";
         this.lastname="";
         this.livesin="";
         this.joinedin="";
+        this.email="";
+        this.password=""
        
 
     }
@@ -24,9 +28,13 @@ export class User {
     public getJoinedIn(){
         return this.joinedin
     }
+    public setEmail(email: string) {
+        this.email=email;
+    }
+    public setPassword(password:string) {
+        this.password= password;
+    }
    
-
-
     public setDateofBirth(dob: Date) {
         // Calculate the age
         this.age=55
