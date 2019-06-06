@@ -23,9 +23,10 @@ export class Tab4Page {
   public property: Array<Property> = [];
   public user: Array<User> = [];
   public currenttrips: Array<CurrentTrip> =[];
-  //public CurrentTrip1: CurrentTrip;
+  public CurrentTrip: CurrentTrip;
+  ////added a 1 below and removed one above///
 
-  //public CurrentTrip1= new CurrentTrip();
+  public CurrentTrip1= new CurrentTrip();
 
   public pasttrip1: pasttrips= new pasttrips();
   public pasttrip2: pasttrips= new pasttrips();
@@ -41,9 +42,20 @@ export class Tab4Page {
 
   } 
 
-  // navToCurrent(trip) {
+  navToCurrent(trip) {
+    this.navCtrl
+      .navigateForward("rental-details-0)", {
+        queryParams: {
+          q: "ionic",
+          CurrentIMGNAME:this.CurrentTrip1.imgName
+          
 
-  // }
+        }
+      }
+    
+,)}}
+
+
 
     
       // currenttriplst: Array<CurrentTrip>();
@@ -54,19 +66,19 @@ export class Tab4Page {
       // this.pasttripsService.getAllPasttrip();
       // this.pasttrips = this.pasttripsService.pasttrips;
     
-    }
+    // }
   
 
-  goCurrent(currenttrips: CurrentTrip) {
-    this.navCtrl
-      .navigateForward("rental-details-0",  {
-        queryParams: {
-          q: "ionic",
-          CurrentIMGNAME: currenttrip1.imgName,
-          CurrentID: currenttrip1.id,
-          CurrentPRICE: currenttrip1.price,
-          CurrentSTARTDATE: currenttrip1.startdate,
-          CurrentENDDATE: currenttrip1.enddate,
+  // goCurrent(currenttrips: CurrentTrip) {
+  //   this.navCtrl
+  //     .navigateForward("rental-details-0",  {
+  //       queryParams: {
+  //         q: "ionic",
+  //         CurrentIMGNAME: currenttrip1.imgName,
+  //         CurrentID: currenttrip1.id,
+  //         CurrentPRICE: currenttrip1.price,
+  //         CurrentSTARTDATE: currenttrip1.startdate,
+  //         CurrentENDDATE: currenttrip1.enddate,
   
     
   //  gopasttrip(pasttrips: pasttrips) {

@@ -28,14 +28,15 @@ export class PropertyDetailsPage implements OnInit {
 
     let arrow = (data: any) => {
       this.nameOfProperty = data.params.propertyName;
-      this.propertyId = data.params.propertyId;
+      this.propertyId = data.params.propertyID;
+      console.log(this.propertyId);
 
       this.currentProperty = 
         this.propertyService.findPropertyById(this.propertyId);
       
       if (!this.currentProperty) {
         alert("Property not found!");
-        this.navCtrl.navigateBack("");
+        this.navCtrl.navigateBack("/tabs/tab5");
       }
     };
 

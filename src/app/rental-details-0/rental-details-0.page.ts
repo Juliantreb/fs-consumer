@@ -45,10 +45,11 @@ export class RentalDetails0Page implements OnInit {
       console.log(this.currentPrice);
       console.log(this.currentStartDate);
       console.log(this.currentEndDate);
+      console.log(this.currentTripId);
 
 
 
-      // this.CurrentTrip = this.currentTripService.findTripById(this.currenttripId);
+      this.CurrentTrip = this.currentTripService.findCurrentTripById(this.currentTripId);
     }
 
     if (!this.currenttrip) {

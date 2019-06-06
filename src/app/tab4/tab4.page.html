@@ -16,8 +16,8 @@
       <div class="center"><h2><b>YOUR CURRENT TRIP</b></h2></div>
       
       
-      <ion-card *ngFor="let currenttrip of currenttrips" (click)="goCurrent(currenttrip)">
-          <ion-img id="photo" src={{currenttrip.imgname}} (click)="goCurrent(currenttrip)"></ion-img>
+      <ion-card *ngFor="let currenttrip of currenttrips" (click)="navToCurrent(currenttrip)">
+          <ion-img id="photo" src={{currenttrip.imgName}} (click)="navToCurrent(currenttrip)"></ion-img>
           <h2><ion-label>{{currenttrip.id}}</ion-label></h2>
             <ion-chip>
               ${{currenttrip.price}} Per Night

@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'tab6', loadChildren: './tab6/tab6.module#Tab6PageModule' },
   { path: 'rental-details-0', loadChildren: './rental-details-0/rental-details-0.module#RentalDetails0PageModule' },
-  { path: 'rental-details-montreal', loadChildren: './rental-details-montreal/rental-details-montreal.module#RentalDetailsMontrealPageModule' },
+  // { path: 'rental-details-montreal', loadChildren: './rental-details-montreal/rental-details-montreal.module#RentalDetailsMontrealPageModule' },
   { path: 'property-details', loadChildren: './property-details/property-details.module#PropertyDetailsPageModule'},
 ];
 @NgModule({
