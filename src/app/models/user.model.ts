@@ -1,6 +1,6 @@
 export class User {
-    public firstname: string;
-    public lastname: string;
+    public name: string;
+    public id: number;
     public livesin: string;
     public joinedin: string;
     public email: string;
@@ -9,8 +9,8 @@ export class User {
     public password: string;
 
     constructor() {
-        this.firstname="";
-        this.lastname="";
+        this.name="";
+        this.id= -1;
         this.livesin="";
         this.joinedin="";
         this.email="";
@@ -19,8 +19,11 @@ export class User {
 
     }
 
-    public setFirstname(firstname: string) {
-        this.firstname= firstname;
+    public setname(name: string) {
+        this.name = name;
+    }
+    public setId(id: number) {
+        this.id = id;
     }
     public getLivesIn(){
         return this.livesin

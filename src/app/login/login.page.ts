@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
     password: ""
   };
 
-  constructor(private navCTRL: NavController, private httpClient: HttpClient) { }
+  constructor(private navCTRL: NavController, private httpClient: HttpClient) {}
 
   Login() {
     console.log("Submitting to the server...");
@@ -21,14 +21,20 @@ export class LoginPage implements OnInit {
 
 
     this.httpClient
-      .post("http://localhost:3000/users/authentication", this.user)
+      .post("http://localhost:3000/api/users/authentication", this.user)
       .subscribe(
         (response) => {
-          console.log(response);
+          // console.log("response: " + JSON.parse(JSON.stringify(response)).id);
+          const userId = JSON.parse(JSON.stringify(response)).id;
+
+          localStorage.setItem("user_id", userId)
+
 
           this.navCTRL.navigateForward(
-            "tabs/tab5"
-            )},
+            "tabs/tab5", {
+            }
+            )
+          },
             (err) => {
               console.log(err);
               alert ("Incorrect Email or Password")
@@ -45,7 +51,7 @@ export class LoginPage implements OnInit {
   //   this.navCTRL.navigateForward('tabs/tab5');
   // }
 
-  // goLogin() {
-  //   this.navCTRL.navigateForward('register');
-  // }
+  goLogin() {
+    this.navCTRL.navigateForward('register');
+  }
 }
