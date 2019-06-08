@@ -3,3 +3,4 @@ export * from './payment.model';
 export * from './property.model';
 export * from './user.model';
 export * from './currenttrip.model';
+// export * from './bookings.model';
