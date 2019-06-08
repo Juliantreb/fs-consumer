@@ -19,7 +19,7 @@
     <div class="ion-padding">
       <ion-avatar class="avatar">
         <img id="imgSection"
-          src="https://media.licdn.com/dms/image/C4D03AQGvGMGxA98h6g/profile-displayphoto-shrink_200_200/0?e=1561593600&v=beta&t=vaRw_tCGehIzVYgKWU5W_bINEOHius-npp7I95P94Ik" />
+          src="{{user.profilephoto}}" />
       </ion-avatar>
     </div>
     
@@ -36,20 +36,20 @@
       <ion-card>
         <h3>About</h3>
         <h6>
-          <ion-icon name="home"></ion-icon> Lives in {{user1.livesin}}
+          <ion-icon name="home"></ion-icon> Lives in {{user.livesin}}
         </h6>
         <h6>
-          <ion-icon name="logo-facebook"></ion-icon> Connected
+          <ion-icon name="logo-facebook"></ion-icon> {{user.facebook}}
         </h6>
         <h6>
-          <ion-icon name="star"></ion-icon> Joined in {{user1.joinedin}}
+          <ion-icon name="star"></ion-icon> Joined on {{user.today}}
         </h6>
       </ion-card>
       <ion-card>
         <h3>Julian Provided</h3>
         <h6>
-          <ion-icon name="checkmark-circle-outline"></ion-icon> Email Address<ion-icon name="checkmark-circle-outline">
-          </ion-icon> Phone Number
+          <ion-icon name="checkmark-circle-outline"></ion-icon> Email Address: {{user.email}}<ion-icon name="checkmark-circle-outline">
+          </ion-icon> Phone Number : {{user.phonenumber}}
         </h6>
       </ion-card>
       <ion-card>

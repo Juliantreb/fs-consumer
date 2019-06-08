@@ -11,7 +11,15 @@ export class RegisterPage implements OnInit {
   public user: any = {
     name: "",
     email: "",
-    password: ""
+    password: "",
+    
+    livesin: "",
+    phonenumber:"",
+    today: "",
+    facebook:"",
+    profilephoto: "",
+
+
   };
 
   constructor(private httpClient: HttpClient,

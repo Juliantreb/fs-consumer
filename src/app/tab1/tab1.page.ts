@@ -38,7 +38,12 @@ export class Tab1Page implements OnInit {
                 console.log("response: " + response);
                 this.user.id = response.id;
                 this.user.name = response.name;
-                this.user.email = response.email
+                this.user.email = response.email;
+                this.user.profilephoto = response.profilephoto;
+                this.user.today = response.today;
+                this.user.facebook = response.facebook;
+                this.user.phonenumber = response.phonenumber;
+                this.user.livesin= response.livesin;
               }
             );
   

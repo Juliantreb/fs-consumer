@@ -1,12 +1,18 @@
+import { stringify } from '@angular/core/src/util';
+
 export class User {
     public name: string;
     public id: number;
     public livesin: string;
     public joinedin: string;
     public email: string;
-   
+    public profilephoto: string;
     private age: number;
     public password: string;
+    public today: string;
+    public facebook: string;
+    public phonenumber: string;
+   
 
     constructor() {
         this.name="";
@@ -14,7 +20,13 @@ export class User {
         this.livesin="";
         this.joinedin="";
         this.email="";
-        this.password=""
+        this.password="";
+        this.profilephoto="";
+        this.facebook="";
+        this.profilephoto="";
+        this.today="";
+        
+
        
 
     }
