@@ -20,21 +20,27 @@
 
 
     <ion-item>
-        <ion-label>From</ion-label>
-        <ion-input>
-          <ion-input placeholder="MM, DD, YYYY" [(ngModel)]="booking.dateFrom"></ion-input>
-        </ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-label>To</ion-label>
-        <ion-input>
-          <ion-input placeholder="MM, DD, YYYY" [(ngModel)]="booking.dateTo"></ion-input>
-        </ion-input>
-      </ion-item>
+      <ion-label>From</ion-label>
+      <ion-input>
+        <ion-input placeholder="MM, DD, YYYY" [(ngModel)]="booking.dateFrom"></ion-input>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>To</ion-label>
+      <ion-input>
+        <ion-input placeholder="MM, DD, YYYY" [(ngModel)]="booking.dateTo"></ion-input>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>To</ion-label>
+      <ion-input>
+        <ion-input placeholder="Name of User" [(ngModel)]="booking.name"></ion-input>
+      </ion-input>
+    </ion-item>
 
 
-      <ion-button expand="block" (click)="submit()" >Book</ion-button>
+    <ion-button expand="block" (click)="submit()">Book</ion-button>
   </ion-card>
 
 

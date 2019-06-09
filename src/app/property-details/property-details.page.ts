@@ -19,6 +19,7 @@ export class PropertyDetailsPage implements OnInit {
     dateTo: "",
     status: "",
     userId: 0,
+    name: "",
 
 
   };
@@ -52,6 +53,7 @@ export class PropertyDetailsPage implements OnInit {
             alert("ERROR! CANNOT BOOK")
           }
         );
+       
     }
     
 
@@ -64,6 +66,7 @@ export class PropertyDetailsPage implements OnInit {
 
         this.id = parameters.params.propertyId;
         console.log(this.id);
+        
 
     this.httpClient.get(`http://localhost:3000/api/properties/${this.id}`)
     .subscribe( 
@@ -72,6 +75,7 @@ export class PropertyDetailsPage implements OnInit {
         this.property = response;
       }
     )
+   
   }
 
   
