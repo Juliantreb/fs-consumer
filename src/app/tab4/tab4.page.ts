@@ -53,7 +53,9 @@ export class Tab4Page {
         }
       }
     
-,)}}
+,)
+}
+}
 
 
 

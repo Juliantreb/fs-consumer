@@ -1,17 +1,27 @@
 export class Property {
-    public price: number;
-    public imgName: string;
+    public name: string;
+    public address: string;
+    public description: string;
+    public imageURL: string;
     public location: string;
-    public id: string;
-    public startdate: string;
-    public enddate : string;
+    public pricePerNight: string;
+
+    public providerId: number;
+    public id: number
+
+
+
+
 
     constructor() {
-        this.price=0;
-        this.id= "";
-        this.imgName="";
-        this.location="";
-        this.startdate= "";
-        this.enddate=""
+        this.name = "";
+        this.address = "";
+        this.description = "";
+        this.imageURL = "";
+        this.location = "";
+        this.pricePerNight = "";
+        this.providerId = -1;
+        this.id = -1;
     }
+
 }

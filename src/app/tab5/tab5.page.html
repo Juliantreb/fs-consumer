@@ -44,11 +44,14 @@
 <ion-item *ngFor="let property of properties" class="flexplore">
   <ion-card style= width:400px; (click)=navToProperty(property)>
       <ion-card-title>
-          <ion-img src="{{property.imgName}}" style= width:150px;height:95px;margin:10px></ion-img>
+          <ion-img src="{{property.imageURL}}" style= width:150px;height:95px;margin:10px></ion-img>
       </ion-card-title>
-      <h1>{{property.id}}</h1>
+      <h1>{{property.name}}</h1>
 
   </ion-card>
+
+
+  
   
 </ion-item>
 

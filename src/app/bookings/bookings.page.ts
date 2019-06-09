@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-bookings',
@@ -7,9 +10,55 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingsPage implements OnInit {
 
-  constructor() { }
+  public booking: any = {
+    propertyId: 0,
+    name: "",
+    dateFrom: "",
+    dateTo: "",
+    status: "",
 
-  ngOnInit() {
+
+  };
+
+  constructor(private httpClient: HttpClient,
+    private navCTRL: NavController,
+    private activatedRoute: ActivatedRoute) { }
+
+  submit() {
+    console.log("Submitting to the server...");
+    console.log(this.booking);
+
+    // this.booking.propertyId = localStorage.getItem(property_id)
+
+    this.httpClient
+      .post("http://localhost:3000/api/booking", this.booking)
+      .subscribe(
+        (response) => {
+          console.log(response);
+
+          this.navCTRL.navigateForward(
+            "/tabs/tab5"
+          )
+        },
+        (err) => {
+          console.log(err);
+          alert("ERROR! CANNOT BOOK")
+        }
+      );
   }
 
-}
+  ngOnInit(): void {
+    this.activatedRoute.queryParamMap.subscribe(
+      (parameters: any) => {
+        console.log(parameters);
+        // console.log("property_id is: " + parameters.get("property_id"))
+
+
+        const propertyId = parameters.params.propertyId;
+        console.log(propertyId);
+
+
+      }
+    )
+    }
+  }

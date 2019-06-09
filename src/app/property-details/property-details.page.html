@@ -1,26 +1,44 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-back-button defaultHref="" ></ion-back-button>
-      <ion-title *ngIf="currentProperty">
-        <div class= "center">Property Details</div>
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-      <ion-img src="{{currentProperty.imgName}}" style= width:750px;height:500px;margin:10px></ion-img>
-  
-      <ion-card>
-        <h1>Location: {{currentProperty.id}}</h1>
+  <ion-toolbar>
+    <ion-back-button defaultHref=""></ion-back-button>
+    <ion-title>
+      <div class="center">
+        <h1> Property Details
+        </h1>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-        <h2>Price: ${{currentProperty.price}} Per Night</h2>
+<ion-content>
+  <ion-img src="{{property.imageURL}}" style=width:750px;height:500px;margin:10px></ion-img>
+
+  <ion-card>
+    <h1>Location: {{property.location}}</h1>
+
+    <h2>Price: ${{property.pricePerNight}} Per Night</h2>
 
 
-        <ion-button shape="round" block href="/bookings"> Book Now</ion-button>
-      </ion-card>
+    <ion-item>
+        <ion-label>From</ion-label>
+        <ion-input>
+          <ion-input placeholder="MM, DD, YYYY" [(ngModel)]="booking.dateFrom"></ion-input>
+        </ion-input>
+      </ion-item>
   
-  
-  
-  
-  
-    </ion-content>
+      <ion-item>
+        <ion-label>To</ion-label>
+        <ion-input>
+          <ion-input placeholder="MM, DD, YYYY" [(ngModel)]="booking.dateTo"></ion-input>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-button expand="block" (click)="submit()" >Book</ion-button>
+  </ion-card>
+
+
+
+
+
+</ion-content>

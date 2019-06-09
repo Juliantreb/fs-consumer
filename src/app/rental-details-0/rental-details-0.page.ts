@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CurrentTrip} from '../models'
 import { NavController } from '@ionic/angular';
-import {CurrentTripService} from '../services/currenttrip.services';
+// import {CurrentTripService} from '../services/currenttrip.services';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -31,7 +31,7 @@ export class RentalDetails0Page implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private currentTripService: CurrentTripService,
+    // private currentTripService: CurrentTripService,
     private activatedRoute: ActivatedRoute
   ) {}
   ngOnInit() {
@@ -49,7 +49,7 @@ export class RentalDetails0Page implements OnInit {
 
 
 
-      this.CurrentTrip = this.currentTripService.findCurrentTripById(this.currentTripId);
+      // this.CurrentTrip = this.currentTripService.findCurrentTripById(this.currentTripId);
     }
 
     if (!this.currenttrip) {

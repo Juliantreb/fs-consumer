@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Property } from '../models';
-import { PropertyService } from '../services/property.services';
 import { NavController } from '@ionic/angular';
+import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute, ParamMap } from '@angular/router';
+// import { Property } from '../model/property.model';
 
 @Component({
   selector: 'app-property-details',
@@ -10,40 +10,70 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./property-details.page.scss'],
 })
 export class PropertyDetailsPage implements OnInit {
+  public property: any = {};
+  public id: any;
 
-  private propertyId: string;
-  public nameOfProperty: string;
-  public currentProperty: Property;
+  public booking: any = {
+    propertyId: 0,
+    dateFrom: "",
+    dateTo: "",
+    status: "",
+    userId: 0,
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private propertyService: PropertyService,
-    private navCtrl: NavController
-  ) { 
-    this.propertyService.getAllProperties();
-  }
 
-  ngOnInit() {
-   
+  };
 
-    let arrow = (data: any) => {
-      this.nameOfProperty = data.params.propertyName;
-      this.propertyId = data.params.propertyID;
-      console.log(this.propertyId);
-
-      this.currentProperty = 
-        this.propertyService.findPropertyById(this.propertyId);
+  
+  constructor(private httpClient: HttpClient,
+    private navCTRL: NavController,
+    private activatedRoute: ActivatedRoute) {}
+    
+    submit() {
+      console.log("Submitting to the server...");
       
-      if (!this.currentProperty) {
-        alert("Property not found!");
-        this.navCtrl.navigateBack("/tabs/tab5");
-      }
-    };
+      this.booking.propertyId = this.id;
+      this.booking.userId = localStorage.getItem("user_id");
+      console.log(this.booking);
+  
+      // this.booking.propertyId = localStorage.getItem(property_id)
+  
+      this.httpClient
+        .post("http://localhost:3000/api/bookings", this.booking)
+        .subscribe(
+          (response) => {
+            console.log(response);
+  
+            this.navCTRL.navigateForward(
+              "/tabs/tab5"
+            )
+          },
+          (err) => {
+            console.log(err);
+            alert("ERROR! CANNOT BOOK")
+          }
+        );
+    }
+    
 
+ ngOnInit(): void {
     this.activatedRoute.queryParamMap.subscribe(
-      arrow
-    );
+      (parameters: any) => {
+        console.log(parameters);
+        // console.log("property_id is: " + parameters.get("property_id"))
 
+
+        this.id = parameters.params.propertyId;
+        console.log(this.id);
+
+    this.httpClient.get(`http://localhost:3000/api/properties/${this.id}`)
+    .subscribe( 
+      (response) => {
+        console.log(response);
+        this.property = response;
+      }
+    )
   }
 
-}
+  
+
+    )}}

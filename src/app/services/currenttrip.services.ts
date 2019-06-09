@@ -14,9 +14,9 @@ export class CurrentTripService {
     this.currenttrips = [];
 
     let currenttrip1 = new CurrentTrip();
-    currenttrip1.id = "Lisbon, Portugal";
+    currenttrip1.name = "Lisbon, Portugal";
     currenttrip1.imgName = "https://i.boring.host/1798u27Y.jpg";
-    currenttrip1.price=  78;
+    currenttrip1.price =  "78";
     currenttrip1.startdate= "May 25, 2019";
     currenttrip1.enddate= "July 6, 2019";
 
@@ -35,7 +35,7 @@ export class CurrentTripService {
 
     this.currenttrips.forEach(
       (currenttrip: CurrentTrip) => {
-        if (currenttrip.id == id) {
+        if (currenttrip.name == id) {
           foundCurrentTrip = currenttrip;
         }
       }

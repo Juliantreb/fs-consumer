@@ -1,14 +1,19 @@
-import { Property } from './property.model';
-
-export class pasttrips extends Property {
+export class pasttrips {
     public startdate: string;
     public enddate: string;
-    public name: string;
-    
+    public name: number;
+    public location: string;
+    public imgName: string;
+    public id: string;
+    public price: number;
+
     constructor() {
-        super();
-        this.startdate="";
-        this.enddate="";
-        this.name=";"
+        this.startdate = "";
+        this.enddate = "";
+        this.name = 0;
+        this.id = "";
+        this.location = "";
+        this.imgName = ""
+        this.price = 0;
     }
 }
